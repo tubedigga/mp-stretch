@@ -1,0 +1,22 @@
+{
+  "kit": "amber",
+  "style": {
+    "background": "ff1e1d1e",
+    "accent": "ffe24a12",
+    "text": "ffffffff",
+    "muted": "ffffa21a"
+  },
+  "pages": [
+    {
+      "name": "STRETCH",
+      "controls": [
+        { "param": "Cyclic", "widget": "knob" },
+        { "param": "Length", "widget": "knob" },
+        { "param": "Pitch", "widget": "switch" },
+        { "param": "Rate", "widget": "knob" },
+        { "param": "Phase", "widget": "knob" },
+        { "param": "Delay", "widget": "knob" }
+      ]
+    }
+  ]
+}
