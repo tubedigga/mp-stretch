@@ -1,17 +1,28 @@
 {
   "name": "MP Stretch",
   "manufacturer": "Tubedigga",
-  "version": "1.6.7",
+  "version": "1.6.8",
   "format": "vst2",
   "kind": "effect",
   "uid": "Pi2G",
   "numInputs": 2,
   "numOutputs": 2,
   "category": "Effect",
+  "shortName": "MP Stretch",
+  "knobs": [
+    { "parameter": 0, "label": "Cyclic" },
+    { "parameter": 1, "label": "Length" },
+    { "parameter": 4, "label": "Delay" }
+  ],
+  "shiftKnobs": [
+    { "parameter": 3, "label": "Phase" },
+    { "parameter": 2, "label": "Pitch" },
+    { "parameter": 5, "label": "Rate" }
+  ],
   "file32": "VST/mp-stretch-arm32.so",
   "file64": "VST/mp-stretch-arm64.so",
-  "description": "Tubedigga MP Stretch. Cyclic, Length, Pitch, Phase, Delay, and Rate process the track and can be automated from the MPC sequencer. Delay at 0 leaves the stretch unchanged. Rate at 44100 Hz is full band.",
+  "description": "Tubedigga MP Stretch. Cyclic, Length, Pitch, Phase, Delay, and Rate process the track and can be automated from the MPC sequencer. Delay at 0 leaves the stretch unchanged. Rate at 44100 Hz is full band. On MPC Sample: Knob FX with Cyclic/Length/Delay and SHIFT Phase/Pitch/Rate.",
   "author": "Tubedigga",
-  "url": "",
+  "url": "https://www.tubedigga.com",
   "license": "GPL-3.0"
 }

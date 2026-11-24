@@ -1,8 +1,8 @@
 # MP Stretch
 
-Version 1.6.7
+Version 1.6.8
 
-AKAI S-Series Rack Sampler Style Time-stretching insert effect for AKAI MPC and AKAI FORCE standalone hardware.
+AKAI S-Series Rack Sampler Style Time-stretching insert effect for AKAI MPC and AKAI FORCE standalone hardware, including **MPC Sample** as a Knob FX.
 
 [tubedigga.com](https://www.tubedigga.com) · tubedigga@gmail.com
 
@@ -18,21 +18,56 @@ You can also load MP Stretch onto one or more of the four sampler insert effect 
 
 Automation for all parameters can be recorded into the MPC/FORCE sequencer.
 
+On **MPC Sample**, it appears as a **Knob FX** (effect only): three knobs plus three more while SHIFT is held. There is no plugin edit screen on Sample.
+
 ## Compatibility
 
-MP Stretch is built for MPC OS 3.10.1 and later.
+| Device | Library | Notes |
+|---|---|---|
+| MPC / Force (32-bit) | `file32` (`mp-stretch-arm32.so`) | MPC OS 3.10.1+, touch UI + Q-Links |
+| MPC Live III / XL and later (64-bit) | `file64` (`mp-stretch-arm64.so`) | Same as above |
+| **MPC Sample** | `file64` only | Firmware **≥ 1.4.0**, Knob FX, 6 params |
+
+### MPC / Force
 
 To run the insert effect, you must check the boxes for ENABLE ENHANCEMENTS AND EXTERNAL PLUGIN SUPPORT which can be found in your MPC/Force MENU/PREFERENCES/ENHANCEMENTS section, near the very bottom of the page.
 
 MP Stretch has been confirmed in use on an MPC Live III but should work on other Gen 1 and Gen 2 AKAI MPC and Force devices running the same firmware with the aforementioned settings enabled.
 
+### MPC Sample
+
+Firmware **v1.4.0 or later**. In **MIDI Config → Dev Enhancements (Beta)**, turn on **Dev Enhancements (Beta)** and then **Custom Plug-In Support**.
+
 ## Installation
 
-On the root of a USB stick, USB drive, SD card or SSD drive, create a new folder and rename it to VST2 Plugins.
+### MPC / Force
+
+On the root of a USB stick, USB drive, SD card or SSD drive, create a new folder and rename it to `VST2 Plugins`.
 
 NOTE: This drive must be inserted into your MPC/Force hardware any time you wish to use this or any other effect you choose to store on it.
 
-Next copy the folder named Tubedigga - VST - MP Stretch into the VST2 Plugins folder.
+Next copy the folder named `Tubedigga - VST - MP Stretch` into the `VST2 Plugins` folder.
+
+### MPC Sample (microSD / SD Card Access)
+
+1. Put a microSD card in the MPC Sample and connect it to the computer with USB.
+2. On the Sample, open **MIDI Config → Dev Enhancements (Beta)** and enable **Dev Enhancements (Beta)** then **Custom Plug-In Support** (once; remembered).
+3. From the **Project** screen, enter **SD Card Access** mode so the card appears as a drive.
+4. Copy the whole folder `Tubedigga - VST - MP Stretch` into a folder named exactly `VST2 Plugins` at the top level of the card (create it if needed).
+5. Eject the card on the computer, then exit **SD Card Access** on the Sample.
+6. The effect appears at the bottom of the **FX Select** list (Knob FX / Input FX), with the external-plugin icon.
+
+Always eject on the computer before leaving SD Card Access, or the copy may be incomplete.
+
+## MPC Sample Knob FX mapping
+
+| Knob | Normal | SHIFT |
+|---|---|---|
+| 1 | **Cyclic** (grain size, samples) | **Phase** (0–30 ms comb) |
+| 2 | **Length** (100–2000%) | **Pitch** (on/off) |
+| 3 | **Delay** (0–2000 ms) | **Rate** (22500–44100 Hz) |
+
+`shortName`: **MP Stretch**. All six parameters are on the knobs; nothing is hidden on Sample.
 
 ## MP Stretch Interface (single page/tab)
 
@@ -128,11 +163,29 @@ Rate runs from 22500 to 44100 Hz and opens at 44100, which reads 44100Hz.
 
 That setting is full band.
 
+## Building (developers)
+
+This repo is an [mpc-plugin-builder-sdk](https://github.com/inmusic-software/mpc-plugin-builder-sdk) plugin project (effect, 2 in / 2 out). The SDK is included as the `sdk/` git submodule (framework + `tools/build.py`).
+
+```bash
+git submodule update --init --recursive
+./scripts/build.sh
+# or: python3 sdk/tools/build.py .
+```
+
+Output folder: `build/Tubedigga - VST - MP Stretch/` (contains `plugin.json`, `VST/mp-stretch-arm32.so`, `VST/mp-stretch-arm64.so`, skins, `version.xml`).
+
+Optional: `./scripts/build.sh --target native` then run the SDK host simulator against `build/native/mp-stretch.so` for a quick DSP smoke test. `python3 sdk/tools/validate.py .` checks ELF arches and prints the Knob FX mapping.
+
+Needs network once for Zig (default cross toolchain) on first build.
+
 ## Licence
 
 MP Stretch is released under the GNU General Public License, version 3.0 (GPL-3.0). If you have the software, you may keep it, change it, and share it under GPL-3.0. Anyone you pass it to receives the same permission.
 
 The time-stretch code is modified from https://github.com/dar-io-p/potenza-time-stretch (GPL-3.0, dar-io-p).
+
+Built with the [mpc-plugin-builder-sdk](https://github.com/inmusic-software/mpc-plugin-builder-sdk) (MIT); the SDK is a build dependency and is not part of the MP Stretch GPL-licensed source.
 
 Selling a download does not stop someone who has the folder from copying it. The folder has no activation code and no lock.
 

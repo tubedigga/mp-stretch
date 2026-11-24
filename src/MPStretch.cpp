@@ -83,7 +83,7 @@ public:
         info.name         = "MP Stretch";
         info.vendor       = "Tubedigga";
         info.uniqueId     = MPC_FOURCC(kUid[0], kUid[1], kUid[2], kUid[3]);
-        info.version      = 1607;
+        info.version      = 1608;
         info.isInstrument = false;
         info.numInputs    = 2;
         info.numOutputs   = 2;
