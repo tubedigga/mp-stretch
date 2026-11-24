@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build MP Stretch with the mpc-plugin-builder-sdk (git submodule at ./sdk).
+# Build MP Sample Stretch with the mpc-plugin-builder-sdk (git submodule at ./sdk).
 # Usage:
 #   ./scripts/build.sh              # native + arm32 + arm64 package
 #   ./scripts/build.sh --target arm64
