@@ -183,7 +183,15 @@ git submodule update --init --recursive
 # or: python3 sdk/tools/build.py .
 ```
 
-Output folder: `build/Tubedigga - VST - MP Sample Stretch/` (contains `plugin.json`, `VST/mp-sample-stretch-arm32.so`, `VST/mp-sample-stretch-arm64.so`, skins, `version.xml`).
+Output folder: `build/Tubedigga - VST - MP Sample Stretch/` (contains `plugin.json`, `LICENSE`, `NOTICE`, `VST/mp-sample-stretch-arm32.so`, `VST/mp-sample-stretch-arm64.so`, skins, `version.xml`).
+
+Package a redistributable zip (LICENSE + NOTICE at zip root and in the plugin folder):
+
+```bash
+./scripts/package.sh
+# -> dist/mp-sample-stretch-<version>-mpc.zip
+# -> dist/Tubedigga_MP_Sample_Stretch.zip
+```
 
 Optional: `./scripts/build.sh --target native` then run the SDK host simulator against `build/native/mp-sample-stretch.so` for a quick DSP smoke test. `python3 sdk/tools/validate.py .` checks ELF arches and prints the Knob FX mapping.
 
@@ -191,11 +199,15 @@ Needs network once for Zig (default cross toolchain) on first build.
 
 ## Licence
 
-MP Sample Stretch is released under the GNU General Public License, version 3.0 (GPL-3.0). If you have the software, you may keep it, change it, and share it under GPL-3.0. Anyone you pass it to receives the same permission.
+MP Sample Stretch is released under the GNU General Public License, version 3.0 (GPL-3.0). See [`LICENSE`](LICENSE) for the full text. If you have the software, you may keep it, change it, and share it under GPL-3.0. Anyone you pass it to receives the same permission.
 
-The time-stretch code is modified from https://github.com/dar-io-p/potenza-time-stretch (GPL-3.0, dar-io-p).
+**Copyright (C) 2026 Tubedigga.** Attribution: Tubedigga · [tubedigga.com](https://www.tubedigga.com).
 
-Built with the [mpc-plugin-builder-sdk](https://github.com/inmusic-software/mpc-plugin-builder-sdk) (MIT); the SDK is a build dependency and is not part of the GPL-licensed source.
+**Corresponding Source** for binary builds (plugin folder / distribution zip) is this GitHub repository: [tubedigga/mp-stretch](https://github.com/tubedigga/mp-stretch). While the Sample Knob FX work is in review, use branch [`cursor/mp-stretch-knob-fx-01d5`](https://github.com/tubedigga/mp-stretch/tree/cursor/mp-stretch-knob-fx-01d5) ([PR #1](https://github.com/tubedigga/mp-stretch/pull/1)); after merge, use `main`. Rebuild with `./scripts/build.sh` and `./scripts/package.sh`. The packaged zip includes `LICENSE` and `NOTICE` at the zip root and inside `Tubedigga - VST - MP Sample Stretch/` so an SD-card install still carries the license and source offer. See [`NOTICE`](NOTICE).
+
+The time-stretch code is modified from [potenza-time-stretch](https://github.com/dar-io-p/potenza-time-stretch) (GPL-3.0, dar-io-p). Copyright notices in the sources are not stripped.
+
+Built with the [mpc-plugin-builder-sdk](https://github.com/inmusic-software/mpc-plugin-builder-sdk) (MIT); the SDK is a build dependency and is not part of the GPL-licensed plugin Corresponding Source.
 
 Selling a download does not stop someone who has the folder from copying it. The folder has no activation code and no lock.
 

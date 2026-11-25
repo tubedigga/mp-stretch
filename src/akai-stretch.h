@@ -1,4 +1,7 @@
 // Modified TimeStretch.h from https://github.com/dar-io-p/potenza-time-stretch (GPL-3.0, dar-io-p).
+// Copyright (C) 2026 Tubedigga (modifications for MPC / MP Sample Stretch).
+// Upstream: potenza-time-stretch by dar-io-p, GPL-3.0.
+// SPDX-License-Identifier: GPL-3.0-only
 // MPC insert: absolute sample index, phase delay, pitch switch, snap to the live input.
 
 #pragma once

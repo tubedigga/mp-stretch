@@ -1,6 +1,12 @@
 // MP Sample Stretch - a Tubedigga Knob FX / insert effect for Akai MPC Sample
 // and other MPC / Force hardware. Same DSP as Tubedigga MP Stretch.
 //
+// Copyright (C) 2026 Tubedigga
+// SPDX-License-Identifier: GPL-3.0-only
+// Corresponding Source: https://github.com/tubedigga/mp-stretch
+// Time-stretch DSP modified from potenza-time-stretch (GPL-3.0, dar-io-p):
+//   https://github.com/dar-io-p/potenza-time-stretch
+//
 // The grain stretch is AkaiStretch (akai-stretch.h). Cyclic, Length, Pitch,
 // Phase, and Delay are the insert, and the MPC sequencer automates them. Neutral
 // is Cyclic 400 samples, Length 100%, Pitch off, Phase off. At those
