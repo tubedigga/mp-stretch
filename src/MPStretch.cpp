@@ -1,4 +1,11 @@
-// MP Stretch - a Tubedigga insert effect for Akai MPC.
+// MP Sample Stretch - a Tubedigga Knob FX / insert effect for Akai MPC Sample
+// and other MPC / Force hardware. Same DSP as Tubedigga MP Stretch.
+//
+// Copyright (C) 2026 Tubedigga
+// SPDX-License-Identifier: GPL-3.0-only
+// Corresponding Source: https://github.com/tubedigga/mp-stretch
+// Time-stretch DSP modified from potenza-time-stretch (GPL-3.0, dar-io-p):
+//   https://github.com/dar-io-p/potenza-time-stretch
 //
 // The grain stretch is AkaiStretch (akai-stretch.h). Cyclic, Length, Pitch,
 // Phase, and Delay are the insert, and the MPC sequencer automates them. Neutral
@@ -80,10 +87,10 @@ public:
     static mpc::PluginInfo makeInfo()
     {
         mpc::PluginInfo info;
-        info.name         = "MP Stretch";
+        info.name         = "MP Sample Stretch";
         info.vendor       = "Tubedigga";
         info.uniqueId     = MPC_FOURCC(kUid[0], kUid[1], kUid[2], kUid[3]);
-        info.version      = 1607;
+        info.version      = 1609;
         info.isInstrument = false;
         info.numInputs    = 2;
         info.numOutputs   = 2;
@@ -100,7 +107,7 @@ public:
         addParam(floatParam("phase", "Phase", 0.0f, AkaiStretch::kPhaseMax, 0.0f, "", 1));
         addParam(floatParam("delay", "Delay", 0.0f, 2000.0f, 0.0f, "", 0));
         addParam(floatParam("rate", "Rate", kRateMin, kRateMax, kRateDef, "", 0));
-        if (numParams() != kNumParams) mpc::log("MP Stretch: parameter count mismatch");
+        if (numParams() != kNumParams) mpc::log("MP Sample Stretch: parameter count mismatch");
 
         const int cap = historyCap();
         for (Channel& c : ch_)

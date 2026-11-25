@@ -1,0 +1,44 @@
+MP Sample Stretch
+=================
+
+Copyright (C) 2026 Tubedigga
+https://www.tubedigga.com · tubedigga@gmail.com
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, version 3 of the License. See the file LICENSE (GPL-3.0).
+
+Corresponding Source
+--------------------
+
+The complete corresponding source for this binary distribution is available at:
+
+  https://github.com/tubedigga/mp-stretch
+
+While this Sample Knob FX work is in review, use branch
+`cursor/mp-stretch-knob-fx-01d5` (pull request #1):
+
+  https://github.com/tubedigga/mp-stretch/pull/1
+  https://github.com/tubedigga/mp-stretch/tree/cursor/mp-stretch-knob-fx-01d5
+
+After merge, use the default branch (`main`) of the same repository.
+
+Rebuild from a checkout with:
+
+  git submodule update --init --recursive
+  ./scripts/build.sh
+  ./scripts/package.sh
+
+Attribution
+-----------
+
+- Developed by Tubedigga.
+- Time-stretch DSP is modified from potenza-time-stretch by dar-io-p
+  (GPL-3.0): https://github.com/dar-io-p/potenza-time-stretch
+- Built with the mpc-plugin-builder-sdk (MIT) as a build dependency:
+  https://github.com/inmusic-software/mpc-plugin-builder-sdk
+  The SDK is not part of the GPL-licensed plugin source tree that you must
+  convey as Corresponding Source for this effect; the plugin sources under
+  this repository are.
+
+VST is a trademark of Steinberg Media Technologies GmbH. MPC is an Akai product.
