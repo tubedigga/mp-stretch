@@ -8,6 +8,8 @@ Product name on Sample and in the install folder: **MP Sample Stretch**. Same DS
 
 [tubedigga.com](https://www.tubedigga.com) · tubedigga@gmail.com
 
+**Manual:** [docs/mp-sample-stretch-manual.pdf](docs/mp-sample-stretch-manual.pdf)
+
 ## Introduction and Key Features
 
 MP Sample Stretch is a stereo insert / Knob FX effect for the Akai MPC developed by Tubedigga.
